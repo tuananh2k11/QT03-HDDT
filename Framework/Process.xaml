@@ -77,7 +77,7 @@
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope" ExistingProcessAction="ForceKill" FileConflictResolution="None" sap:VirtualizedContainerService.HintSize="704,3608" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="True">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Xử lý file Excel trước khi lên hóa đơn" ExistingProcessAction="ForceKill" FileConflictResolution="None" sap:VirtualizedContainerService.HintSize="704,3608" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="True">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
@@ -89,32 +89,32 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="628,3430" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="Data\\13.04_B001.4-Báo cáo dữ liệu hóa đơn điện tử (RL-20E).xlsx">
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="FIle theo ngày " sap:VirtualizedContainerService.HintSize="628,3430" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="Data\\13.04_B001.4-Báo cáo dữ liệu hóa đơn điện tử (RL-20E).xlsx">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
-                  <Sequence sap:VirtualizedContainerService.HintSize="594,3164" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence DisplayName="Xử lý" sap:VirtualizedContainerService.HintSize="594,3164" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,3072" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <Sequence DisplayName="Xử lý" sap:VirtualizedContainerService.HintSize="552,3072" sap2010:WorkflowViewState.IdRef="Sequence_3">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ueab:DeleteColumnX ColumnName="#" DisplayName="Delete Column" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,158" sap2010:WorkflowViewState.IdRef="DeleteColumnX_1">
+                      <ueab:DeleteColumnX ColumnName="#" DisplayName="Xóa cột STT" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,158" sap2010:WorkflowViewState.IdRef="DeleteColumnX_1">
                         <ueab:DeleteColumnX.Range>
                           <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
                             <mca:CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">Excel.Sheet["Sheet1"]</mca:CSharpValue>
                           </InArgument>
                         </ueab:DeleteColumnX.Range>
                       </ueab:DeleteColumnX>
-                      <ueab:FilterX ClearFilter="False" ColumnName="Mã hóa đơn (*)" DisplayName="Filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_1">
+                      <ueab:FilterX ClearFilter="False" ColumnName="Mã hóa đơn (*)" DisplayName="Lọc 6C22" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_1">
                         <ueab:FilterX.FilterArgument>
                           <ueabf:FilterArgument Mode="Advanced">
                             <ueabf:FilterArgument.AdvancedFiltersArgument>
@@ -144,40 +144,21 @@
                           </InArgument>
                         </ueab:FilterX.Range>
                       </ueab:FilterX>
-                      <ueab:DeleteRowsX RowPositions="{x:Null}" DeleteRowsOption="Visible" DisplayName="Delete Rows" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,137" sap2010:WorkflowViewState.IdRef="DeleteRowsX_1">
+                      <ueab:DeleteRowsX RowPositions="{x:Null}" DeleteRowsOption="Visible" DisplayName="Xóa 6C22" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,137" sap2010:WorkflowViewState.IdRef="DeleteRowsX_1">
                         <ueab:DeleteRowsX.Range>
                           <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
                             <mca:CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">Excel.Sheet["Sheet1"]</mca:CSharpValue>
                           </InArgument>
                         </ueab:DeleteRowsX.Range>
                       </ueab:DeleteRowsX>
-                      <ueab:FilterX ColumnName="{x:Null}" FilterArgument="{x:Null}" ClearFilter="True" DisplayName="Filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_2">
+                      <ueab:FilterX ColumnName="{x:Null}" FilterArgument="{x:Null}" ClearFilter="True" DisplayName="Bỏ filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_2">
                         <ueab:FilterX.Range>
                           <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
                             <mca:CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">Excel.Sheet["Sheet1"]</mca:CSharpValue>
                           </InArgument>
                         </ueab:FilterX.Range>
                       </ueab:FilterX>
-                      <ueab:SortX DisplayName="Sort Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,211" sap2010:WorkflowViewState.IdRef="SortX_1">
-                        <ueab:SortX.Body>
-                          <ActivityAction>
-                            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ueab:SortColumnX ColumnName="Mã hóa đơn (*)" DisplayName="Sort By Column" sap:VirtualizedContainerService.HintSize="382,61" sap2010:WorkflowViewState.IdRef="SortColumnX_1" SortDirection="Ascending" />
-                            </Sequence>
-                          </ActivityAction>
-                        </ueab:SortX.Body>
-                        <ueab:SortX.Range>
-                          <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
-                            <mca:CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">Excel.Sheet["Sheet1"].Range["_FilterDatabase"]</mca:CSharpValue>
-                          </InArgument>
-                        </ueab:SortX.Range>
-                      </ueab:SortX>
-                      <ueab:FilterX ClearFilter="False" ColumnName="Loại tiền(*)" DisplayName="Filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_3">
+                      <ueab:FilterX ClearFilter="False" ColumnName="Loại tiền(*)" DisplayName="Lọc loại tiền USD" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_3">
                         <ueab:FilterX.FilterArgument>
                           <ueabf:FilterArgument Mode="Basic">
                             <ueabf:FilterArgument.AdvancedFiltersArgument>
@@ -207,7 +188,7 @@
                           </InArgument>
                         </ueab:FilterX.Range>
                       </ueab:FilterX>
-                      <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Process" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,429" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" SaveAfterEachRow="False">
+                      <ueab:ExcelForEachRowX DisplayName="Sửa hình thức thanh toán" EmptyRowBehavior="Process" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,429" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" SaveAfterEachRow="False">
                         <ueab:ExcelForEachRowX.Body>
                           <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
                             <ActivityAction.Argument1>
@@ -222,7 +203,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="WriteCellX_1">
+                              <ueab:WriteCellX DisplayName="Nhập cell CK cho USD" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="WriteCellX_1">
                                 <ueab:WriteCellX.Cell>
                                   <InArgument x:TypeArguments="ue:IReadWriteCellRef">
                                     <mca:CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">CurrentRow["Hình thức thanh toán"]</mca:CSharpValue>
@@ -243,14 +224,14 @@
                           </InArgument>
                         </ueab:ExcelForEachRowX.Range>
                       </ueab:ExcelForEachRowX>
-                      <ueab:FilterX ColumnName="{x:Null}" FilterArgument="{x:Null}" ClearFilter="True" DisplayName="Filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_4">
+                      <ueab:FilterX ColumnName="{x:Null}" FilterArgument="{x:Null}" ClearFilter="True" DisplayName="Bỏ filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_4">
                         <ueab:FilterX.Range>
                           <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
                             <mca:CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">Excel.Sheet["Sheet1"]</mca:CSharpValue>
                           </InArgument>
                         </ueab:FilterX.Range>
                       </ueab:FilterX>
-                      <ueab:FilterX ClearFilter="False" ColumnName="Hình thức hóa đơn" DisplayName="Filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_5">
+                      <ueab:FilterX ClearFilter="False" ColumnName="Hình thức hóa đơn" DisplayName="Lọc hình thức hóa đơn trống" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_5">
                         <ueab:FilterX.FilterArgument>
                           <ueabf:FilterArgument Mode="Advanced">
                             <ueabf:FilterArgument.AdvancedFiltersArgument>
@@ -282,7 +263,7 @@
                           </InArgument>
                         </ueab:FilterX.Range>
                       </ueab:FilterX>
-                      <ueab:FilterX ClearFilter="False" ColumnName="Ghi chú" DisplayName="Filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_7">
+                      <ueab:FilterX ClearFilter="False" ColumnName="Ghi chú" DisplayName="Lọc KM theo QĐ*" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_7">
                         <ueab:FilterX.FilterArgument>
                           <ueabf:FilterArgument Mode="Advanced">
                             <ueabf:FilterArgument.AdvancedFiltersArgument>
@@ -314,7 +295,7 @@
                           </InArgument>
                         </ueab:FilterX.Range>
                       </ueab:FilterX>
-                      <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,429" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_2" SaveAfterEachRow="False">
+                      <ueab:ExcelForEachRowX DisplayName="Xử lý hình thức hóa đơn" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,429" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_2" SaveAfterEachRow="False">
                         <ueab:ExcelForEachRowX.Body>
                           <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
                             <ActivityAction.Argument1>
@@ -329,7 +310,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="WriteCellX_2">
+                              <ueab:WriteCellX DisplayName="Nhập SP HTTT" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="WriteCellX_2">
                                 <ueab:WriteCellX.Cell>
                                   <InArgument x:TypeArguments="ue:IReadWriteCellRef">
                                     <mca:CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">CurrentRow["Hình thức hóa đơn"]</mca:CSharpValue>
@@ -350,13 +331,32 @@
                           </InArgument>
                         </ueab:ExcelForEachRowX.Range>
                       </ueab:ExcelForEachRowX>
-                      <ueab:FilterX ColumnName="{x:Null}" FilterArgument="{x:Null}" ClearFilter="True" DisplayName="Filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_8">
+                      <ueab:FilterX ColumnName="{x:Null}" FilterArgument="{x:Null}" ClearFilter="True" DisplayName="Bỏ filter" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,168" sap2010:WorkflowViewState.IdRef="FilterX_8">
                         <ueab:FilterX.Range>
                           <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
                             <mca:CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">Excel.Sheet["Sheet1"]</mca:CSharpValue>
                           </InArgument>
                         </ueab:FilterX.Range>
                       </ueab:FilterX>
+                      <ueab:SortX DisplayName="Sắp xếp tăng dần theo mã hóa đơn" HasHeaders="True" sap:VirtualizedContainerService.HintSize="510,211" sap2010:WorkflowViewState.IdRef="SortX_2">
+                        <ueab:SortX.Body>
+                          <ActivityAction>
+                            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ueab:SortColumnX ColumnName="Mã hóa đơn (*)" DisplayName="Sort By Column" sap:VirtualizedContainerService.HintSize="382,61" sap2010:WorkflowViewState.IdRef="SortColumnX_2" SortDirection="Ascending" />
+                            </Sequence>
+                          </ActivityAction>
+                        </ueab:SortX.Body>
+                        <ueab:SortX.Range>
+                          <InArgument x:TypeArguments="ue:IReadWriteRangeRef">
+                            <mca:CSharpValue x:TypeArguments="ue:IReadWriteRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">Excel.Sheet["Sheet1"]</mca:CSharpValue>
+                          </InArgument>
+                        </ueab:SortX.Range>
+                      </ueab:SortX>
                     </Sequence>
                   </Sequence>
                 </ActivityAction>
